@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <header><img
+            src="https://images.ctfassets.net/swt2dsco9mfe/1qU2YMq2MSczf9KGme5gu7/a580e2f158f2c08faad3a9d4463af0bc/dnd-hub-logo.png?fm=avif"
+            alt="Dungeons and Dragons Logo" width="300" height="100" class="d-inline-block align-text-top" id="logo">
+        <div>
+            <h2>Character Generator</h2>
+        </div>
+    </header>
+
+    <!-- nav bar -->
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Home</h5>
+            <h5 class="text-white h4">Saved</h5>
+            <h5 class="text-white h4">About</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark" style="background-color: gray;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Button -->
+    <button id="random" class="btn">Excalibur!</button>
+
+    <!-- cards container -->
+    <div class="row mb-2">
+        <!-- first card -->
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"></strong>
+                    <h3 class="mb-0">Ability Scores</h3>
+                    <!-- standard array only (15, 14, 13, 12, 10, 8) -->
+                    <p class="card-text mb-auto">
+                    <ul>
+                        <p class="abil" id="str">Strength:&nbsp;</p>
+                        <p class="abil" id="dex">Dexterity:&nbsp;</p>
+                        <p class="abil" id="con">Constitution:&nbsp;</p>
+                        <p class="abil" id="int">Intelligence:&nbsp;</p>
+                        <p class="abil" id="wis">Wisdom:&nbsp;</p>
+                        <p class="abil" id="cha">Charisma:&nbsp;</p>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- second card -->
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"></strong>
+                    <h3 class="mb-0">Character</h3>
+                    <p class="card-text mb-auto">
+                    <p class="charLoop" id="alignments">Alignment:&nbsp;</p>
+                    <p class="charLoop" id="classes">Class:&nbsp;</p>
+                    <p class="charLoop" id="races">Race:&nbsp;</p>
+                    <p class="charLoop" id="languages">Language:&nbsp;</p>
+                    <p class="charLoop" id="traits">Trait:&nbsp;</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- third card -->
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"></strong>
+                    <h3 class="mb-0">Misc</h3>
+                    <p class="card-text mb-auto">
+                    <p class="charLoop" id="magic-items">Magic Item:&nbsp;</p>
+                    <p class="charLoop" id="equipment">Equipment:&nbsp;</p>
+                    <p class="charLoop" id="proficiencies">Proficiency:&nbsp;</p>
+                    <p class="charLoop" id="skills">Skill:&nbsp;</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form>
+        <label>First Name</label>
+        <input type="text" id="firstN" placeholder="First Name">
+        <label>Last Name</label>
+        <input type="text" id="lastN" placeholder="Last Name">
+        <input type="submit" value="Save Character">
+    </form>
+
+    <div class="row mb-2">
+        <div class="col-md-3" id="sCharCard">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"></strong>
+                    <h3 class="mb-0">Saved Characters</h3>
+                    <p class="card-text mb-auto">
+                        <!-- A list for saved characters -->
+                    <ul id="savedChars">
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="contact">
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <span class="text-muted">Contact us at: DragonSlayer@dnd.com</span>
+            </div>
+        </footer>
+    </a>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
